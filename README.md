@@ -20,4 +20,5 @@ The engine of technology is powered by my curiosity, fueled with my passion and 
 [Join me](mailto:yogeshh2021@gmail.com) in my journey to convert caffiene to code 🌱
 
 
-![Yogesh's Github Stats](https://github-readme-stats.vercel.app/api?username=YogeshUpdhyay&show_icons=true)
+![Yogesh's Github Stats](https://github-readme-stats.vercel.app/api?username=YogeshUpdhyay&show_icons=true&count_private=true)
+
