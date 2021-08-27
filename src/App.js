@@ -1,11 +1,13 @@
 import Typist from 'react-text-typist'
 import logo from './logo.svg';
 import './App.css';
+import AppBar from './components/AppBar/AppBar';
 
 function App() {
   return (
     <div className="main-content">
-        <Typist 
+        <AppBar />
+        {/* <Typist 
             sentences={[
                 'First Sentence', 
                 'Second Sentence', 
@@ -14,7 +16,7 @@ function App() {
             loop={true} 
             typingSpeed={160}
             className="typist-text"
-        />
+        /> */}
     </div>
   );
 }
