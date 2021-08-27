@@ -1,0 +1,10 @@
+.main-content {
+  background-color: #151515;
+  min-height: 100vh;
+  display: flex;
+}
+
+.typist-text {
+    color: white;
+    font-weight: bold;
+}
