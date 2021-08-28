@@ -6,7 +6,7 @@ const AppBar = () => {
         <div className="container pt-2 ps-pe-auto">
             <nav className="navbar navbar-expand-lg navbar-transperant bg-transperant">
                 <div className="container-fluid">
-                    <h4 className="text-muted">Yogesh Upadhyay</h4>
+                    <h5 className="text-muted">Yogesh Upadhyay</h5>
                     <div className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i className="fas fa-bars" style={{color: 'white'}}></i>
                     </div>
