@@ -41,67 +41,93 @@ const fallBack = () => {
     )
 }
 
-const Avatar = (props) => {
+// const Avatar = (props) => {
+//     const group = useRef()
+//     const { nodes, materials, animations } = useGLTF('../../assets/newAvatar.glb')
+//     const { actions } = useAnimations(animations, group)
+
+//     return (
+//         <group ref={group} {...props} dispose={null}>
+//             <primitive object={nodes.Hips} />
+//             <skinnedMesh
+//                 geometry={nodes.EyeLeft.geometry}
+//                 material={nodes.EyeLeft.material}
+//                 skeleton={nodes.EyeLeft.skeleton}
+//             />
+//             <skinnedMesh
+//                 geometry={nodes.EyeRight.geometry}
+//                 material={nodes.EyeRight.material}
+//                 skeleton={nodes.EyeRight.skeleton}
+//             />
+//             <skinnedMesh
+//                 geometry={nodes.Wolf3D_Glasses.geometry}
+//                 material={materials.Wolf3D_Glasses}
+//                 skeleton={nodes.Wolf3D_Glasses.skeleton}
+//             />
+//             <skinnedMesh
+//                 geometry={nodes.Wolf3D_Hair.geometry}
+//                 material={materials.Wolf3D_Hair}
+//                 skeleton={nodes.Wolf3D_Hair.skeleton}
+//             />
+//             <skinnedMesh
+//                 geometry={nodes.Wolf3D_Hands.geometry}
+//                 material={nodes.Wolf3D_Hands.material}
+//                 skeleton={nodes.Wolf3D_Hands.skeleton}
+//             />
+//             <skinnedMesh
+//                 geometry={nodes.Wolf3D_Shirt.geometry}
+//                 material={materials.Wolf3D_Shirt}
+//                 skeleton={nodes.Wolf3D_Shirt.skeleton}
+//             />
+//             <skinnedMesh
+//                 name="Wolf3D_Head"
+//                 geometry={nodes.Wolf3D_Head.geometry}
+//                 material={nodes.Wolf3D_Head.material}
+//                 skeleton={nodes.Wolf3D_Head.skeleton}
+//                 morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+//                 morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+//             />
+//             <skinnedMesh
+//                 name="Wolf3D_Teeth"
+//                 geometry={nodes.Wolf3D_Teeth.geometry}
+//                 material={materials.Wolf3D_Teeth}
+//                 skeleton={nodes.Wolf3D_Teeth.skeleton}
+//                 morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+//                 morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+//             />
+//         </group>
+//     );
+// }
+
+// useGLTF.preload('../../assets/newAvatar.glb')
+
+
+const MechDrone = (props) => {
     const group = useRef()
     const { nodes, materials, animations } = useGLTF('../../assets/newScene.glb')
+
+    console.log(nodes)
     const { actions } = useAnimations(animations, group)
-
-    console.log(nodes.Hips.children[0].children[0]);
-
     return (
         <group ref={group} {...props} dispose={null}>
-            <primitive object={nodes.Hips} />
-            <skinnedMesh
-                geometry={nodes.EyeLeft.geometry}
-                material={nodes.EyeLeft.material}
-                skeleton={nodes.EyeLeft.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.EyeRight.geometry}
-                material={nodes.EyeRight.material}
-                skeleton={nodes.EyeRight.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Glasses.geometry}
-                material={materials.Wolf3D_Glasses}
-                skeleton={nodes.Wolf3D_Glasses.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Hair.geometry}
-                material={materials.Wolf3D_Hair}
-                skeleton={nodes.Wolf3D_Hair.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Hands.geometry}
-                material={nodes.Wolf3D_Hands.material}
-                skeleton={nodes.Wolf3D_Hands.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Shirt.geometry}
-                material={materials.Wolf3D_Shirt}
-                skeleton={nodes.Wolf3D_Shirt.skeleton}
-            />
-            <skinnedMesh
-                name="Wolf3D_Head"
-                geometry={nodes.Wolf3D_Head.geometry}
-                material={nodes.Wolf3D_Head.material}
-                skeleton={nodes.Wolf3D_Head.skeleton}
-                morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-                morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
-            />
-            <skinnedMesh
-                name="Wolf3D_Teeth"
-                geometry={nodes.Wolf3D_Teeth.geometry}
-                material={materials.Wolf3D_Teeth}
-                skeleton={nodes.Wolf3D_Teeth.skeleton}
-                morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-                morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-            />
+            <group rotation={[-Math.PI / 2, 0, 0]}>
+                <group rotation={[Math.PI / 2, 0, 0]}>
+                <primitive object={nodes._rootJoint} />
+                <skinnedMesh
+                    geometry={nodes.droid_Robot_0.geometry}
+                    material={materials.Robot}
+                    skeleton={nodes.droid_Robot_0.skeleton}
+                />
+                </group>
+            </group>
         </group>
     );
 }
 
 useGLTF.preload('../../assets/newScene.glb')
+
+
+
 
 const Top3d = () => {
 
@@ -121,7 +147,7 @@ const Top3d = () => {
             >
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
-                <Avatar />
+                <MechDrone />
             </Canvas>
         </div>
     )
