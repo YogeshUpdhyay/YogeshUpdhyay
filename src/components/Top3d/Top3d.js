@@ -30,17 +30,6 @@ function Box(props) {
     )
 }
 
-const fallBack = () => {
-    return (
-        <Canvas>
-            <ambientLight />
-            <pointLight position={[10, 10, 10]} />
-            <Box position={[-1.2, 0, 0]} />
-            <Box position={[1.2, 0, 0]} />
-        </Canvas>
-    )
-}
-
 // const Avatar = (props) => {
 //     const group = useRef()
 //     const { nodes, materials, animations } = useGLTF('../../assets/newAvatar.glb')
@@ -101,53 +90,94 @@ const fallBack = () => {
 
 // useGLTF.preload('../../assets/newAvatar.glb')
 
-
-const MechDrone = (props) => {
+const AvatarModel = (props) => {
     const group = useRef()
-    const { nodes, materials, animations } = useGLTF('../../assets/newScene.glb')
-
-    console.log(nodes)
-    const { actions } = useAnimations(animations, group)
+    const { nodes, materials } = useGLTF('../../assets/avatarModel.glb')
     return (
         <group ref={group} {...props} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, 0]}>
-                <group rotation={[Math.PI / 2, 0, 0]}>
-                <primitive object={nodes._rootJoint} />
-                <skinnedMesh
-                    geometry={nodes.droid_Robot_0.geometry}
-                    material={materials.Robot}
-                    skeleton={nodes.droid_Robot_0.skeleton}
-                />
-                </group>
-            </group>
+            <primitive object={nodes.Hips} />
+            <skinnedMesh
+                geometry={nodes.EyeLeft.geometry}
+                material={nodes.EyeLeft.material}
+                skeleton={nodes.EyeLeft.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.EyeRight.geometry}
+                material={nodes.EyeRight.material}
+                skeleton={nodes.EyeRight.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Body.geometry}
+                material={materials.Wolf3D_Body}
+                skeleton={nodes.Wolf3D_Body.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Glasses.geometry}
+                material={materials.Wolf3D_Glasses}
+                skeleton={nodes.Wolf3D_Glasses.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Hair.geometry}
+                material={materials.Wolf3D_Hair}
+                skeleton={nodes.Wolf3D_Hair.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+                material={materials.Wolf3D_Outfit_Bottom}
+                skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+                material={materials.Wolf3D_Outfit_Footwear}
+                skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+            />
+            <skinnedMesh
+                geometry={nodes.Wolf3D_Outfit_Top.geometry}
+                material={materials.Wolf3D_Outfit_Top}
+                skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+            />
+            <skinnedMesh
+                name="Wolf3D_Head"
+                geometry={nodes.Wolf3D_Head.geometry}
+                material={materials.Wolf3D_Skin}
+                skeleton={nodes.Wolf3D_Head.skeleton}
+                morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+                morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+            />
+            <skinnedMesh
+                name="Wolf3D_Teeth"
+                geometry={nodes.Wolf3D_Teeth.geometry}
+                material={materials.Wolf3D_Teeth}
+                skeleton={nodes.Wolf3D_Teeth.skeleton}
+                morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+                morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+            />
         </group>
-    );
+    )
 }
 
-useGLTF.preload('../../assets/newScene.glb')
-
-
+useGLTF.preload('../../assets/avatarModel.glb')
 
 
 const Top3d = () => {
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-5">
             <Canvas 
                 style={{
                     height: '80vh', 
                     width: '100%'
                 }}
                 camera={{ 
-                    fov: 20, 
+                    fov: 50, 
                     near: 0.1, 
-                    far: 100, 
+                    far: 1000, 
                     position: [0, 0, 5] 
                 }}
             >
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
-                <MechDrone />
+                <AvatarModel />
             </Canvas>
         </div>
     )
