@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import { useThree } from '@react-three/fiber';
 import { UnsignedByteType, PMREMGenerator, Texture } from 'three';
 
-
-
 export default function EnvironmentController({ hdri }) {
   const RGBELoader = require('three/examples/jsm/loaders/RGBELoader').RGBELoader;
+
   const { gl, scene } = useThree();
 
   useEffect(() => {

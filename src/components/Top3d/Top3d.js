@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import HubAvatar from './HubAvatar'
 import CameraController from './CameraController'
@@ -14,15 +14,17 @@ const Top3d = () => {
             <Canvas
                 shadows
                 camera={{ fov: 50, position: new Vector3(0, 0, 3) }}
-                style={{ height: '60vh', width: '150%', left: '-25%'}}
+                style={{ height: '70vh', width: '100%' }}
             >
+                <ambientLight />
+                <pointLight position={[10, 10, 10]} />
                 <CameraController
                     fullbody={true}
                     gender="male"
                     camTarget={{ halfbody: 0.55, fullbody: 1.55 }}
                     initialCamDistance={{ halfbody: 0.5, fullbody: 0.4 }}
                 />
-                <EnvironmentController hdri="../../assets/interior.hdr" />
+                {/* <EnvironmentController hdri="../../assets/interior.hdr" /> */}
                 <Suspense fallback={null}>
                     <HubAvatar />
                 </Suspense>

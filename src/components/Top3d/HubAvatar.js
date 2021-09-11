@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import { dispose, useFrame, useGraph, useLoader } from '@react-three/fiber';
 import { AnimationMixer, LinearFilter } from 'three';
 import useHeadMovement from './HeadMovement';
+const SkeletonUtils = require('three/examples/jsm/utils/SkeletonUtils');
 
 const initialRotation = 20 * (Math.PI / 180);
 let currentRotation = 0;
@@ -16,11 +17,11 @@ const setDepthWrite = (materials) => {
 
 export default function HubAvatar(props) {
 
-    // const { scene } = useGLTF("../../assets/avatarModel.glb");
-    // const clone = useMemo(() => require('three/examples/jsm/utils/SkeletonUtils').SkeletonUtils.clone(scene), [scene]);
-    // const { nodes, materials } = useGraph(clone);
+    const { scene } = useGLTF("../../assets/avatarModel.glb");
+    const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
+    console.log(clone)
+    const { nodes, materials } = useGraph(clone);
 
-    const { nodes, materials } = useGLTF("../../assets/avatarModel.glb");
     const meshRef = useRef();
 
     let mixer = null;
@@ -41,11 +42,6 @@ export default function HubAvatar(props) {
         }
     });
 
-    useEffect(() => {
-        currentRotation = 0;
-        useGLTF.preload("../../assets/avatarModel.glb")
-    }, []);
-
     useFrame((state, delta) => {
         mixer?.update(delta);
 
@@ -64,16 +60,16 @@ export default function HubAvatar(props) {
 				const node = nodes[key];
 
 				if (node.type === 'SkinnedMesh') {
-				return <primitive key={node.name} object={node} receiveShadow castShadow />;
-				}
+				    return <primitive key={node.name} object={node} receiveShadow castShadow />;
+				} else {
+                    return null;
+                }
 
-				return null;
 			})}
             <mesh key="shadow-catcher" receiveShadow position={[0, 0, 0]} rotation-x={-Math.PI / 2}>
                 <planeBufferGeometry attach="geometry" args={[5, 5]} />
                 <shadowMaterial attach="material" transparent opacity={0.5} />
             </mesh>
-			
 		</group>
     );
 }
