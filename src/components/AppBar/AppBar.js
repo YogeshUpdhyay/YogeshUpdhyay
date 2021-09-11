@@ -14,7 +14,6 @@ const AppBar = () => {
     const [aboutActive, setAboutActive] = useState(true);
 
     const changeActive = (newActive) => {
-        console.log("Here");
         switch (newActive) {
             case "Work":
                 setWorkActive(true)
