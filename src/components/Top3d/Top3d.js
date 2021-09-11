@@ -1,95 +1,31 @@
-import React, { useRef } from 'react'
+import React, { useRef, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { useGLTF } from '@react-three/drei'
+import HubAvatar from './HubAvatar'
+import CameraController from './CameraController'
+import EnvironmentController from './EnvironmentController'
+import { Vector3 } from 'three'
 
-import logo from '../../assets/hero.png'
 import './Top3d.css';
-
-const AvatarModel = (props) => {
-    const group = useRef()
-    const { nodes, materials } = useGLTF('../../assets/avatarModel.glb')
-    return (
-        <group ref={group} {...props} dispose={null}>
-            <primitive object={nodes.Hips} />
-            <skinnedMesh
-                geometry={nodes.EyeLeft.geometry}
-                material={nodes.EyeLeft.material}
-                skeleton={nodes.EyeLeft.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.EyeRight.geometry}
-                material={nodes.EyeRight.material}
-                skeleton={nodes.EyeRight.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Body.geometry}
-                material={materials.Wolf3D_Body}
-                skeleton={nodes.Wolf3D_Body.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Glasses.geometry}
-                material={materials.Wolf3D_Glasses}
-                skeleton={nodes.Wolf3D_Glasses.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Hair.geometry}
-                material={materials.Wolf3D_Hair}
-                skeleton={nodes.Wolf3D_Hair.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-                material={materials.Wolf3D_Outfit_Bottom}
-                skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-                material={materials.Wolf3D_Outfit_Footwear}
-                skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
-            />
-            <skinnedMesh
-                geometry={nodes.Wolf3D_Outfit_Top.geometry}
-                material={materials.Wolf3D_Outfit_Top}
-                skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
-            />
-            <skinnedMesh
-                name="Wolf3D_Head"
-                geometry={nodes.Wolf3D_Head.geometry}
-                material={materials.Wolf3D_Skin}
-                skeleton={nodes.Wolf3D_Head.skeleton}
-                morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-                morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
-            />
-            <skinnedMesh
-                name="Wolf3D_Teeth"
-                geometry={nodes.Wolf3D_Teeth.geometry}
-                material={materials.Wolf3D_Teeth}
-                skeleton={nodes.Wolf3D_Teeth.skeleton}
-                morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-                morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-            />
-        </group>
-    )
-}
-
-useGLTF.preload('../../assets/avatarModel.glb')
-
 
 const Top3d = () => {
 
     return (
-        <div className="container p-0 mt-0">
+        <div className="container p-0 mt-md-4">
             <Canvas
-                className="canvas-3d"
-                camera={{
-                    fov: 75,
-                    near: 0.1,
-                    far: 1000,
-                    position: [0,0,5]
-                }}
+                shadows
+                camera={{ fov: 50, position: new Vector3(0, 0, 3) }}
+                style={{ height: '60vh', width: '150%', left: '-25%'}}
             >
-                <ambientLight intensity={0.5} />
-                <pointLight position={[10, 10, 10]} />
-                <AvatarModel />
+                <CameraController
+                    fullbody={true}
+                    gender="male"
+                    camTarget={{ halfbody: 0.55, fullbody: 1.55 }}
+                    initialCamDistance={{ halfbody: 0.5, fullbody: 0.4 }}
+                />
+                <EnvironmentController hdri="../../assets/interior.hdr" />
+                <Suspense fallback={null}>
+                    <HubAvatar />
+                </Suspense>
             </Canvas>
         </div>
     )

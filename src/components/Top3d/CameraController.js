@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Camera, Color, DirectionalLight, Vector3 } from 'three';
 
-
 const fullbodyMinDist = 0.5;
 const fullbodyMaxDist = 2.5;
 
@@ -26,6 +25,14 @@ const updateCameraFocus = (camera, delta, fullbody) => {
     progress += delta;
   }
 };
+
+function Clamp(value, max, min) {
+    return Math.min(Math.max(min, value), max);
+}
+
+function Lerp(start, end, time = 0.1) {
+    return start * (1 - time) + end * time;
+}
 
 const updateCameraTarget = (camera, target, fullbody) => {
   if (controls && fullbody) {
@@ -78,26 +85,23 @@ export default function CameraController({ fullbody: fullBody, gender, camTarget
       controls.update();
     }
 
-    const updateCameraMovementProgress = (event) => {
-      const distance = controls.target.distanceTo(camera.position);
+    // const updateCameraMovementProgress = (event) => {
+    //   const distance = controls.target.distanceTo(camera.position);
 
-      if (event.detail) {
-        focusOnFace = !fullBody || event.detail.category !== Categories.Shirt;
+    //   if (event.detail) {
+    //     focusOnFace = !fullBody || event.detail.category !== Categories.Shirt;
 
-        const toFace = focusOnFace && distance > (fullBody ? 1.2 : 0.7);
-        const toBody = !focusOnFace && distance < 1.7;
+    //     const toFace = focusOnFace && distance > (fullBody ? 1.2 : 0.7);
+    //     const toBody = !focusOnFace && distance < 1.7;
 
-        if (toFace || toBody) {
-          progress = 0;
-        }
-      }
-    };
-
-    CustomizationCategoryChangeEventHandler.subscribe(updateCameraMovementProgress);
+    //     if (toFace || toBody) {
+    //       progress = 0;
+    //     }
+    //   }
+    // };
 
     return () => {
       controls.dispose();
-      CustomizationCategoryChangeEventHandler.unsubscribe(updateCameraMovementProgress);
     };
   }, [fullBody, gender]);
 
