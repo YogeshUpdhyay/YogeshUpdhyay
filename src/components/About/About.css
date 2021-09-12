@@ -1,0 +1,9 @@
+hr {
+    border: none;
+    color: white;
+    height: 2px;
+    background: inherit;
+    background-color: inherit;
+    margin: 0;
+    opacity: 1;
+}
