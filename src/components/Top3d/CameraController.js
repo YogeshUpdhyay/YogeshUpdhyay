@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Camera, Color, DirectionalLight, Vector3 } from 'three';
+import { Color, DirectionalLight, Vector3 } from 'three';
 
 const fullbodyMinDist = 0.5;
 const fullbodyMaxDist = 2.5;
@@ -103,7 +103,7 @@ export default function CameraController({ fullbody: fullBody, gender, camTarget
     return () => {
       controls.dispose();
     };
-  }, [fullBody, gender]);
+  },);
 
   useFrame((_, delta) => {
     updateCameraTarget(camera, fullbodyCamTarget, fullBody);

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useThree } from '@react-three/fiber';
-import { UnsignedByteType, PMREMGenerator, Texture } from 'three';
+import { UnsignedByteType, PMREMGenerator } from 'three';
 
 export default function EnvironmentController({ hdri }) {
   const RGBELoader = require('three/examples/jsm/loaders/RGBELoader').RGBELoader;
@@ -23,7 +23,7 @@ export default function EnvironmentController({ hdri }) {
         pmremGenerator.dispose();
       });
     }
-  }, [gl]);
+  });
 
   return null;
 }

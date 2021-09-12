@@ -1,7 +1,6 @@
 import { useGLTF } from '@react-three/drei';
-import { GLTFLoader } from 'three-stdlib';
-import React, { useEffect, useMemo, useRef } from 'react';
-import { dispose, useFrame, useGraph, useLoader } from '@react-three/fiber';
+import React, { useMemo, useRef } from 'react';
+import { useFrame, useGraph } from '@react-three/fiber';
 import { AnimationMixer, LinearFilter } from 'three';
 import useHeadMovement from './HeadMovement';
 const SkeletonUtils = require('three/examples/jsm/utils/SkeletonUtils');
@@ -19,7 +18,6 @@ export default function HubAvatar(props) {
 
     const { scene } = useGLTF("../../assets/avatarModel.glb");
     const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
-    console.log(clone)
     const { nodes, materials } = useGraph(clone);
 
     const meshRef = useRef();

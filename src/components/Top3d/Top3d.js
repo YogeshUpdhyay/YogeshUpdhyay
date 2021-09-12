@@ -24,7 +24,7 @@ const Top3d = () => {
                     camTarget={{ halfbody: 0.55, fullbody: 1.55 }}
                     initialCamDistance={{ halfbody: 0.5, fullbody: 0.4 }}
                 />
-                {/* <EnvironmentController hdri="../../assets/interior.hdr" /> */}
+                <EnvironmentController hdri="../../assets/interior.hdr" />
                 <Suspense fallback={null}>
                     <HubAvatar />
                 </Suspense>

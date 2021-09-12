@@ -1,4 +1,4 @@
-import { Object3D, Vector2 } from 'three';
+import { Vector2 } from 'three';
 import { useFrame } from '@react-three/fiber';
 
 
