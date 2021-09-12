@@ -1,12 +1,7 @@
 import {React, useState} from 'react'
 import './AppBar.css'
-import logo from '../../assets/logo.png'
 
 const AppBar = () => {
-
-    // Icon Transition State and Operations
-    const [menu, setMenu] = useState(false)
-    const changeMenu = (val) => setMenu(val)
 
     // Nav Menu State and Operations
     const [workActive, setWorkActive] = useState(false);
@@ -52,7 +47,6 @@ const AppBar = () => {
                             <h5 className="nav-item text-muted m-0 pe-2 pd-2" onClick={() => changeActive("Project")}>Projects</h5>}
                     </div>
                 </div>
-                
             </nav>
         </div>
     )
