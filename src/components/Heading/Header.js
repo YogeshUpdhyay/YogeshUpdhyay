@@ -6,7 +6,7 @@ import './Header.css'
 const Header = () => {
     return (
         <div className="container">
-            <p className="display-3 title text-center mt-4"><strong>Hi, I'm Yogesh</strong></p>
+            <p className="display-2 title text-center mt-4"><strong>Hi, I'm Yogesh</strong></p>
             <h3 className="text-center text-muted mt-md-4">
                 I'm a <Typist 
                     sentences={[
