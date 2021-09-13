@@ -1,6 +1,7 @@
 hr {
-    border: none;
     color: white;
+    border-color: white;
+    border-width: 2px;
     height: 2px;
     background: inherit;
     background-color: inherit;

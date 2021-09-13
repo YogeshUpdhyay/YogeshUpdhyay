@@ -19,10 +19,10 @@ const About = () => {
                     <p className="fs-2 fw-bold text-white text-center m-0">About Me</p>
                     <hr />
                     <div className="row">
-                        <div className="col">
+                        <div className="col text-white">
                             Here goes the images
                         </div>
-                        <div className="col">
+                        <div className="col text-white">
                             Here goes the data
                         </div>
                     </div>
