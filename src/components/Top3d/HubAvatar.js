@@ -71,3 +71,5 @@ export default function HubAvatar(props) {
 		</group>
     );
 }
+
+useGLTF.preload("../../assets/avatarModel.glb");
