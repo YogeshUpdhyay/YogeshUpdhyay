@@ -4,6 +4,7 @@ import AppBar from './components/AppBar/AppBar';
 import Header from './components/Heading/Header';
 import Top3d from './components/Top3d/Top3d';
 import About from './components/About/About';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Header />
             <Top3d />
             <About />
+            <Footer />
         </div>
     </Suspense>
     
