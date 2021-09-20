@@ -5,10 +5,16 @@ import avatarImg from '../../assets/avatar.png'
 
 const Footer = (props) => {
     return (
-        <div className="container py-5" style={{maxWidth: 1200}}>
+        <div 
+            className="container py-5 mt-5" 
+            style={{
+                maxWidth: 1200,
+                borderTop: '2px solid #6c757d'
+            }}
+        >
             <h3 className="text-white text-bold">Get In Touch</h3>
             <div className="row justify-content-between">
-                <div className="col-6">
+                <div className="col-xl-6">
                     <div className="row">
                         <div className="col">
                             <h5 className="text-white my-2">
@@ -27,7 +33,7 @@ const Footer = (props) => {
                         </a>
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-xl-4">
                     <h5 className="text-muted text-end md-2">About</h5>
                     <h5 className="text-muted text-end md-2">Work</h5>
                     <h5 className="text-muted text-end md-2">Projects</h5>
