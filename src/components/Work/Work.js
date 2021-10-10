@@ -7,7 +7,7 @@ const Work = () => {
     return (
         <Zoom>
             <div className="container mt-5">
-                <p className="fs-2 fw-bold text-white text-center text-decoration-underline">Work Experience</p>
+                <p className="fs-1 fw-bold text-white text-center text-decoration-underline">Work Experience</p>
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col ps-5 pe-2">
                         <div class="card bg-dark text-white">

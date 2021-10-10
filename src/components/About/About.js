@@ -39,7 +39,6 @@ const About = () => {
                         <div className="progress">
                             <div className="progress-bar" role="progressbar" style={{width: "55%"}} aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-
                     </div>
                 </div>
             </div>
