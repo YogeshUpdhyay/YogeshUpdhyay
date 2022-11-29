@@ -1,0 +1,17 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    margin: 100px;
+    gap: 20px;
+}
+
+.about-small-banner-text {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.about-banner-text {
+    font-size: 10em;
+    font-weight: bolder;
+}

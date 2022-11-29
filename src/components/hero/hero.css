@@ -1,0 +1,56 @@
+.herosection {
+    z-index: 1;
+}
+
+.leading-text {
+    font-size: 20px;
+    color: var(--purple);
+    margin-bottom: 50px;
+}
+
+.leading-text:before {
+    content: "";
+    background-color: var(--purple);
+    width: 50px;
+    height: 4px;
+    display: flex;
+}
+
+.banner-text {
+    font-size: 4em;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.hero-container {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.hero-container::after {
+    z-index: 1;
+    content: "";
+    width: 40vw;
+    height: 100%;
+    background-color: var(--purple);
+}
+
+.hero-container-cta {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    margin: 100px;
+    margin-right: 0px;
+    padding-top: 200px;
+    justify-content: center;
+}
+
+.hero-container-image {
+    width: 40%;
+    background-color: var(--background);
+}

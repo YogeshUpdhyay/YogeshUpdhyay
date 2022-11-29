@@ -6,81 +6,81 @@
     --pink: #FFBDBD;
     --blue: #7894FF;
     --white: #FFFFFF;
-    --button: #00113B;
+    --background: #1B1B87;
     --grey: #9f9fa9;
+    --dark: #00113B;
 }
 
-.herosection {
-    z-index: 1;
-    position: relative;
-}
 
-.leading-text {
-    font-size: 20px;
-    color: var(--purple);
-}
 
-.banner-text {
-    font-size: 72px;
-    color: var(--black);
-    font-weight: bold;
-}
-.hero-container {
-    width: 100vw;
-    height: 100vh;
+.btn {
+    border: none;
+    border-radius: 16px;
+    background-color: var(--purple);
+    color: white;
+    width: fit-content;
     display: flex;
-    z-index: 2
-}
-.hero-container-cta {
-    width: 60%;
-    padding: 100px;
-    padding-top: 200px;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 20px;
+    padding: 10px 50px;
 }
 
-.hero-container-image {
-    width: 40%;
-    height: 100%;
+.btn-block {
+    width: auto;
+}
+
+.btn-purple {
     background-color: var(--purple);
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    z-index: 3;
-    position: absolute;
-    width: 100%;
+.btn-dark {
+    background-color: var(--dark);
 }
 
-.navbar-logo {
-    width: 250px;
-    margin-top: -100px;
-    cursor: pointer;
+.button-text {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.navbar-group {
-    display: flex;
-    padding: 0px 100px;
-    gap: 80px;
-}
-
-.navbar-item {
+.skills {
+    margin: 80px;
+    padding: 100px;
+    padding-top: 0px;
     display: flex;
     gap: 20px;
-    align-items: center;
+    justify-content: space-evenly;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    padding: 130px 20px;
+    max-width: 350px;
+}
+
+.skill-card:hover {
+    background-color: var(--white);
+}
+
+
+.skill-card-image {
+    border-radius: 50%;
+    height: 240px;
+    width: 240px;
+    background-color: var(--pink);
+}
+
+.skill-card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.skill-card-subtext {
+    text-align: center;
+    font-size: 18px;
     color: var(--grey);
-    cursor: pointer;
-}
-
-.navbar-item:hover {
-    color: var(--black);
-}
-
-.navbar-menuicon {
-    margin-left: auto;
-    margin-right: 100px;
-    margin-top: 17px;
 }
