@@ -9,10 +9,10 @@ const Hero = (props) => {
           <div className="hero-container-cta">
             <div className="leading-text">Yogesh Upadhyay</div>
             <div className="banner-text">
-                Hello, my <br />
-                name's Yogesh. <br />
-                I'm a Full Stack <br />
-                Developer
+                Hello, my name's <br />
+                Yogesh.<br />
+                I'm a <br />
+                Full Stack Developer< br/>
             </div>
           </div>
         </div>

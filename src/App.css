@@ -1,17 +1,15 @@
 :root {
     --black: #111029;
-    --purple: #4C40F7;
-    --green: #A4D677;
-    --yellow: #F8D457;
-    --pink: #FFBDBD;
-    --blue: #7894FF;
-    --white: #FFFFFF;
-    --background: #1B1B87;
+    --purple: #4c40f7;
+    --green: #a4d677;
+    --yellow: #f8d457;
+    --pink: #ffbdbd;
+    --blue: #7894ff;
+    --white: #ffffff;
+    --background: #1b1b87;
     --grey: #9f9fa9;
-    --dark: #00113B;
+    --dark: #00113b;
 }
-
-
 
 .btn {
     border: none;
@@ -23,6 +21,13 @@
     align-items: center;
     gap: 20px;
     padding: 10px 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        width: auto;
+        justify-content: center;
+    }
 }
 
 .btn-block {
@@ -39,6 +44,5 @@
 
 .button-text {
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-

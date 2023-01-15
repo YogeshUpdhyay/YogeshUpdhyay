@@ -1,17 +1,31 @@
 .about {
     display: flex;
     flex-direction: column;
-    padding: 100px;
-    margin: 100px;
     gap: 20px;
+    padding: 50px 100px;
 }
 
 .about-small-banner-text {
     font-size: 32px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .about-banner-text {
     font-size: 10em;
     font-weight: bolder;
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        padding: 20px;
+    }
+
+    .about-small-banner-text {
+        font-size: 20px;
+    }
+
+    .about-banner-text {
+        padding: 50px 0px 30px;
+        font-size: 4em;
+    }
 }

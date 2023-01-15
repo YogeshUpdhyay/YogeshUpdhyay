@@ -3,7 +3,8 @@
     align-items: center;
     z-index: 3;
     position: absolute;
-    width: 100%;
+    width: 100vw;
+    justify-content: space-between;
 }
 
 .navbar-logo {
@@ -16,6 +17,16 @@
     display: flex;
     padding: 0px 100px;
     gap: 80px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar-group {
+        display: none;
+    }
+
+    .navbar-logo {
+        margin-left: -50px;
+    }
 }
 
 .navbar-item {
@@ -35,4 +46,20 @@
     margin-left: auto;
     margin-right: 100px;
     margin-top: 17px;
+}
+
+.navbar-menuicon-bars {
+    color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar-menuicon-bars {
+        color: black;
+    }
+
+    .navbar-menuicon {
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 17px;
+    }
 }

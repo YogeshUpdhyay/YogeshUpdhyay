@@ -70,22 +70,22 @@ const Navbar = (props) => {
       </div>
 
       <div className="navbar-group">
-        <div className="navbar-item">
+        <a href = "/" className="navbar-item">
           <HiSparkles />
           About
-        </div>
-        <div className="navbar-item">
+        </a>
+        <a href="/" className="navbar-item">
           <HiCodeBracket />
           Work
-        </div>
-        <a className="navbar-item">
+        </a>
+        <a href="/" className="navbar-item">
           <HiMail />
           <p>Contact</p>
         </a>
       </div>
 
       <div className="navbar-menuicon">
-        <HiBars2 size={64} color="white" />
+        <HiBars2 size={64} className="navbar-menuicon-bars" />
       </div>
     </div>
   );

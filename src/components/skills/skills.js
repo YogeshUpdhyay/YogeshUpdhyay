@@ -36,8 +36,7 @@ const Skills = (props) => {
           <div className="arrow-container">
             <HiChevronDoubleLeft size={32}/>
             <HiChevronDoubleRight size={32}/>
-          </div>
-          <a href="" className="contact-me">Contact Me</a>
+          </div>        
         </div>
       </section>
     );

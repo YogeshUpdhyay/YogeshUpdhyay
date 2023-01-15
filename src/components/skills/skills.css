@@ -52,12 +52,22 @@
     display: flex;
     gap: 50px;
     color: var(--black);
-    margin-left: auto;
-    padding-left: 60px;
+    padding-left: 80px;
+    margin: auto;
 }
 
 .contact-me {
     margin-left: auto;
     font-size: 16px;
     color: var(--purple);
+}
+
+@media (max-width: 768px) {
+    .contact-me {
+        display: none;
+    }
+
+    .arrow-container {
+        padding-left: 0px;
+    }
 }
